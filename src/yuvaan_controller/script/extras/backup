@@ -1,0 +1,7 @@
+export PKG_CONFIG_PATH='/usr/lib/aarch64-linux-gnu/pkgconfig'
+export PATH=$PATH:/usr/local/cuda-11.4/bin
+export LD_LIBRARY_PATH=/opt/ros/noetic/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64
+export OPENBLAS_CORETYPE=ARMV8
+export OMP_NUM_THREADS=1
+
