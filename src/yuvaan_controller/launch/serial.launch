@@ -1,0 +1,8 @@
+<launch>
+  <!-- Launch the rosserial node -->
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial_node" output="screen">
+    <!-- Specify the serial port and baud rate -->
+    <param name="serial_port" value="/dev/ttyACM0" />
+    <param name="baud_rate" value="115200" />
+  </node>
+</launch>

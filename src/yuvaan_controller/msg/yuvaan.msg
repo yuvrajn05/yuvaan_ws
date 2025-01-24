@@ -1,0 +1,15 @@
+int32 vel_linear_x
+int32 vel_angular_z
+int32 mode
+int32 ra_1
+int32 ra_2
+int32 ra_3
+int32 ra_4
+int32 ra_5
+int32 ra_6
+int32 ba_1
+int32 ba_2
+int32 ba_3
+int32 ba_4
+int32 ba_5
+int32 ba_6

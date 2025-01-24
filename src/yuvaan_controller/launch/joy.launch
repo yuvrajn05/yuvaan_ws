@@ -1,0 +1,7 @@
+<launch>
+  <!-- Launch the joy node -->
+  <node pkg="joy" type="joy_node" name="joy_node" output="screen">
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <!-- Adjust device name (e.g., /dev/input/jsX) as needed -->
+  </node>
+</launch>
