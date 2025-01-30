@@ -37,7 +37,7 @@ def joy_callback(msg):
     vel_angular_z = 0
     BASE = SHOULDER = ELBOW = ROLL = PITCH = GRIPPER = 0
     # ra_1 = ra_2 = ra_3 = ra_4 = ra_5 = ra_6 = 0
-    ba_1 = ba_2 = ba_3 = ba_4 = ba_5 = ba_6 = 0
+    DRILL = ACTUATOR = NPK = EXTRA = ba_5 = ba_6 = 0
 
     # Check if BACK button is pressed
     if BACK == 1:
@@ -46,8 +46,8 @@ def joy_callback(msg):
     mode = modes[current_mode_index]
 
     if mode == 1:
-        vel_linear_x = int(255 * (RT - LT) / 2)
-        vel_angular_z = int(255 * L_Analog_X)
+        vel_linear_x = int(127 * (RT - LT) / 2)
+        vel_angular_z = int(127 * L_Analog_X)
 
     elif mode == 2:
         vel_linear_x = int(127 * D_Y)
@@ -60,10 +60,12 @@ def joy_callback(msg):
         GRIPPER = int(127 * (RB - LB))
 
     elif mode == 3:
-        vel_linear_x = int(255 * (RT - LT) / 2)
-        vel_angular_z = int(255 * L_Analog_X)
-        ba_1 = int(255 * R_Analog_Y)
-        ba_2 = int(255 * R_Analog_X)
+        vel_linear_x = int(127 * (RT - LT) / 2)
+        vel_angular_z = int(127 * L_Analog_X)
+        DRILL = int(255 * (RB - LB))
+        ACTUATOR = int(255 * D_Y)
+        NPK = int(255 * (Y - A))
+        EXTRA = int(255 * R_Analog_X)
 
     motorspeed = yuvaan()
     motorspeed.mode = mode
@@ -75,10 +77,10 @@ def joy_callback(msg):
     motorspeed.ra_4 = ROLL
     motorspeed.ra_5 = PITCH
     motorspeed.ra_6 = GRIPPER
-    motorspeed.ba_1 = ba_1
-    motorspeed.ba_2 = ba_2
-    motorspeed.ba_3 = ba_3
-    motorspeed.ba_4 = ba_4
+    motorspeed.ba_1 = DRILL
+    motorspeed.ba_2 = ACTUATOR
+    motorspeed.ba_3 = NPK
+    motorspeed.ba_4 = EXTRA
     motorspeed.ba_5 = ba_5
     motorspeed.ba_6 = ba_6
 

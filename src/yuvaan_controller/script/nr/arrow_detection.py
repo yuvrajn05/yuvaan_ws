@@ -84,9 +84,9 @@ class ArrowDetectionNode:
         right_points = sum(1 for pt in approx if pt[0][0] > tip[0])
 
         if left_points > right_points and left_points > 4:
-            return "Left"
-        if right_points > left_points and right_points > 4:
             return "Right"
+        if right_points > left_points and right_points > 4:
+            return "Left"
         return "None"
 
     def calculate_angle(self, p1, p2):
@@ -181,12 +181,12 @@ class ArrowDetectionNode:
 
             runtime_params = sl.RuntimeParameters()
             z_depth = self.get_frame_depth(zed, runtime_params, frame_center)
-            
+            rospy.logerr(z_depth)
             # Close ZED Camera
             zed.close()
 
             # Publish only when depth is less than threshold
-            if z_depth is not None and z_depth < DEPTH_THRESHOLD:
+            if z_depth is not None:
                 # Publish Direction
                 direction_msg = String()
                 direction_msg.data = direction

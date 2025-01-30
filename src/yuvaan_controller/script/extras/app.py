@@ -4,15 +4,17 @@ import cv2
 app = Flask(__name__)
 
 # Path to the video device (e.g., /dev/video4)
-VIDEO_DEVICE_PATH = "/dev/video2"
-
-def generate_video():
+VIDEO_DEVICE_PATH1 = "/dev/video1"
+VIDEO_DEVICE_PATH2 = "/dev/video2"
+VIDEO_DEVICE_PATH3 = "/dev/video3"
+VIDEO_DEVICE_PATH4 = "/dev/video4"
+def generate_video(path):
     """Stream video from the specified device."""
     # Open video capture from the device
-    cap = cv2.VideoCapture(VIDEO_DEVICE_PATH)
+    cap = cv2.VideoCapture(path)
     
     if not cap.isOpened():
-        raise RuntimeError(f"Unable to open video device {VIDEO_DEVICE_PATH}")
+        raise RuntimeError(f"Unable to open video device {path}")
     
     while True:
         # Capture frame-by-frame
@@ -31,10 +33,25 @@ def generate_video():
     # Release the capture after the streaming ends
     cap.release()
 
-@app.route('/video')
+@app.route('/video1')
 def stream_video():
     """Stream video from the specified video device."""
-    return Response(generate_video(), content_type='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_video(VIDEO_DEVICE_PATH1), content_type='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/video2')
+def stream_video():
+    """Stream video from the specified video device."""
+    return Response(generate_video(VIDEO_DEVICE_PATH2), content_type='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/video3')
+def stream_video():
+    """Stream video from the specified video device."""
+    return Response(generate_video(VIDEO_DEVICE_PATH3), content_type='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/video4')
+def stream_video():
+    """Stream video from the specified video device."""
+    return Response(generate_video(VIDEO_DEVICE_PATH4), content_type='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
@@ -58,4 +75,3 @@ def cmd():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
-

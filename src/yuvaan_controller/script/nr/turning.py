@@ -53,7 +53,7 @@ class ArrowTurnController:
         self.TURN_THRESHOLD = 90.0
 
         # ROS Subscribers and Publishers
-        rospy.Subscriber('arrow_direction', String, self.arrow_callback)
+        rospy.Subscriber('filtered_direction', String, self.arrow_callback)
         self.turn_pub = rospy.Publisher('motor_command', yuvaan, queue_size=10)
 
         # Initialize motor command message with forward motion
