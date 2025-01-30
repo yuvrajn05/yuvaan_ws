@@ -1,6 +1,7 @@
 int32 vel_linear_x
 int32 vel_angular_z
 int32 mode
+int32 mani_mode
 int32 ra_1
 int32 ra_2
 int32 ra_3

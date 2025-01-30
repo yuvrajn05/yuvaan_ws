@@ -6,14 +6,16 @@ from yuvaan_controller.msg import yuvaan
 
 # Global variable for current mode index
 current_mode_index = 0
-modes = [1, 2, 3]
+# modes = [1, 2, 3]
+modes = [1, 2, 3, 4]
 
-# mani_mode_index = 0
-# mani_modes = [30,60,80]
+mani_mode_index = 0
+mani_modes = [30,60,80]
 
 
 def joy_callback(msg):
     global current_mode_index  # Use the global variable
+    global mani_mode_index
 
     LT = -msg.axes[2]
     RT = -msg.axes[5]
@@ -45,30 +47,46 @@ def joy_callback(msg):
 
     mode = modes[current_mode_index]
 
+    # Check if A button is pressed
+    if A == 1:
+        mani_mode_index = (mani_mode_index + 1) % len(mani_modes)
+
+    mani_mode = mani_modes[mani_mode_index]
+
+
     if mode == 1:
+        vel_linear_x = int(97 * (RT - LT) / 2)
+        vel_angular_z = int(97 * L_Analog_X)
+
+    elif mode == 2:
         vel_linear_x = int(127 * (RT - LT) / 2)
         vel_angular_z = int(127 * L_Analog_X)
 
-    elif mode == 2:
-        vel_linear_x = int(127 * D_Y)
-        vel_angular_z = int(127 * D_X)
+    elif mode == 3:
+        vel_linear_x = int(97 * D_Y)
+        vel_angular_z = int(97 * D_X)
         BASE = int(255 * L_Analog_X)
         SHOULDER = int(255 * L_Analog_Y)
         ELBOW = int(255 * R_Analog_Y)
         ROLL = int(-30 * R_Analog_X)
-        PITCH = int(30 * (RT - LT) / 2)
+
+        PITCH = int(mani_mode * (RT - LT) / 2)
+
         GRIPPER = int(127 * (RB - LB))
 
-    elif mode == 3:
-        vel_linear_x = int(127 * (RT - LT) / 2)
-        vel_angular_z = int(127 * L_Analog_X)
-        DRILL = int(255 * (RB - LB))
-        ACTUATOR = int(255 * D_Y)
-        NPK = int(255 * (Y - A))
-        EXTRA = int(255 * R_Analog_X)
+    elif mode == 4:
+        vel_linear_x = int(255 * (RT - LT) / 2)
+        vel_angular_z = int(255 * L_Analog_X)
+
+
+        # DRILL = int(255 * (RB - LB))
+        # ACTUATOR = int(255 * D_Y)
+        # NPK = int(255 * (Y - A))
+        # EXTRA = int(255 * R_Analog_X)
 
     motorspeed = yuvaan()
     motorspeed.mode = mode
+    motorspeed.mani_mode = mani_mode
     motorspeed.vel_linear_x = vel_linear_x
     motorspeed.vel_angular_z = vel_angular_z
     motorspeed.ra_1 = BASE
