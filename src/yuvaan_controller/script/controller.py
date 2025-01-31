@@ -9,13 +9,17 @@ current_mode_index = 0
 # modes = [1, 2, 3]
 modes = [1, 2, 3, 4]
 
-mani_mode_index = 0
-mani_modes = [30,60,80]
+yaw_mode_index = 0
+yaw_modes = [30,60,80]
+
+roll_mode_index = 0
+roll_modes = [30,60,80]
 
 
 def joy_callback(msg):
     global current_mode_index  # Use the global variable
-    global mani_mode_index
+    global yaw_mode_index
+    global roll_mode_index
 
     LT = -msg.axes[2]
     RT = -msg.axes[5]
@@ -49,9 +53,15 @@ def joy_callback(msg):
 
     # Check if A button is pressed
     if A == 1:
-        mani_mode_index = (mani_mode_index + 1) % len(mani_modes)
+        yaw_mode_index = (yaw_mode_index + 1) % len(yaw_modes)
 
-    mani_mode = mani_modes[mani_mode_index]
+    yaw_mode = yaw_modes[yaw_mode_index]
+
+    # Check if B button is pressed
+    if B == 1:
+        roll_mode_index = (roll_mode_index + 1) % len(roll_modes)
+
+    roll_mode = roll_modes[roll_mode_index]
 
 
     if mode == 1:
@@ -68,9 +78,10 @@ def joy_callback(msg):
         BASE = int(255 * L_Analog_X)
         SHOULDER = int(255 * L_Analog_Y)
         ELBOW = int(255 * R_Analog_Y)
-        ROLL = int(-30 * R_Analog_X)
 
-        PITCH = int(mani_mode * (RT - LT) / 2)
+        ROLL = int(-roll_mode * R_Analog_X)
+
+        PITCH = int(yaw_mode * (RT - LT) / 2)
 
         GRIPPER = int(127 * (RB - LB))
 
@@ -86,7 +97,8 @@ def joy_callback(msg):
 
     motorspeed = yuvaan()
     motorspeed.mode = mode
-    motorspeed.mani_mode = mani_mode
+    motorspeed.roll_mode = roll_mode
+    motorspeed.yaw_mode = yaw_mode
     motorspeed.vel_linear_x = vel_linear_x
     motorspeed.vel_angular_z = vel_angular_z
     motorspeed.ra_1 = BASE
