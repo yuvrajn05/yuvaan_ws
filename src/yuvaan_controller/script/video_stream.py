@@ -6,13 +6,13 @@ app = Flask(__name__)
 # List of specific video device paths
 VIDEO_DEVICE_PATHS = {
     "video0": "/dev/video0",
-    "video1": "/dev/video2",
-    "video2": "/dev/video4",
-    "video3": "/dev/video6",
-    "video4": "/dev/video8",
-    "video5": "/dev/video10",
-    "video6": "/dev/video12",
-    "video7": "/dev/video14"
+    "video1": "/dev/video1",
+    "video2": "/dev/video2",
+    "video3": "/dev/video3",
+    "video4": "/dev/video4",
+    "video5": "/dev/video5",
+    "video6": "/dev/video6",
+    "video7": "/dev/video8"
 }
 
 def generate_video(device_path):
@@ -105,13 +105,10 @@ def index():
     </head>
     <body>
         <h1>Live Camera Streams</h1>
-        <div class="video2-container">
-            <h3>Video 2</h3>
-            <a href="/video2" target="_blank"><img src="/video2"></a>
-        </div>
         <div class="grid-container">
             <div class="grid-item"><h3>Video 0</h3><a href="/video0" target="_blank"><img src="/video0"></a></div>
             <div class="grid-item"><h3>Video 1</h3><a href="/video1" target="_blank"><img src="/video1"></a></div>
+            <div class="grid-item"><h3>Video 2</h3><a href="/video2" target="_blank"><img src="/video2"></a></div>
             <div class="grid-item"><h3>Video 3</h3><a href="/video3" target="_blank"><img src="/video3"></a></div>
             <div class="grid-item"><h3>Video 4</h3><a href="/video4" target="_blank"><img src="/video4"></a></div>
             <div class="grid-item"><h3>Video 5</h3><a href="/video5" target="_blank"><img src="/video5"></a></div>

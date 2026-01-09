@@ -1,0 +1,13 @@
+
+(cl:in-package :asdf)
+
+(defsystem "yuvaan_controller-msg"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :components ((:file "_package")
+    (:file "drive" :depends-on ("_package_drive"))
+    (:file "_package_drive" :depends-on ("_package"))
+    (:file "mani" :depends-on ("_package_mani"))
+    (:file "_package_mani" :depends-on ("_package"))
+    (:file "yuvaan" :depends-on ("_package_yuvaan"))
+    (:file "_package_yuvaan" :depends-on ("_package"))
+  ))

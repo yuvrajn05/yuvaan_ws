@@ -77,7 +77,7 @@ def joy_callback(msg):
     motor_command_pub.publish(motorspeed)
 
 if __name__ == '__main__':
-    rospy.init_node('motor_control_node')
+    rospy.init_node('mani_control_node')
     joy_sub = rospy.Subscriber('joy_b', Joy, joy_callback)
     motor_command_pub = rospy.Publisher('motor_command', yuvaan, queue_size=10)
     rospy.spin()

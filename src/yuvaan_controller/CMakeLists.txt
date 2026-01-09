@@ -11,13 +11,18 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  message_generation
 )
 
 find_package(roscpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(message_generation REQUIRED)
 
-add_message_files(FILES yuvaan.msg)
+add_message_files(FILES
+  yuvaan.msg
+  mani.msg
+  drive.msg
+)
 ##add_message_files(FILES z.msg)
 
 generate_messages(DEPENDENCIES std_msgs)
@@ -114,7 +119,7 @@ generate_messages(DEPENDENCIES std_msgs)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES yuvaan_controller
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
