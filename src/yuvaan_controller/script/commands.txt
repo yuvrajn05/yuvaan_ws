@@ -9,3 +9,5 @@ rosrun yuvaan_controller mani.py
 rostopic echo /motor_command
 python3 yuvaan_ws/src/yuvaan_controller/script/video_stream.py
 rosrun rosserial_python serial_node.py /dev/ttyUSB0
+rosrun rosserial_python serial_node.py /dev/ttyUSB0 __name:=serial_node_1
+rosrun rosserial_python serial_node.py /dev/ttyUSB1 __name:=serial_node_2
