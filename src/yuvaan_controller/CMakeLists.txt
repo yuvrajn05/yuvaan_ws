@@ -22,6 +22,7 @@ add_message_files(FILES
   yuvaan.msg
   mani.msg
   drive.msg
+  drive_servo.msg
 )
 ##add_message_files(FILES z.msg)
 
