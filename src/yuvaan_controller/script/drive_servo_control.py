@@ -22,12 +22,18 @@ class DriveServoControl:
         
         # Servo control (using microseconds for precision)
         self.servo_speed = 1500    # Current servo speed in microseconds (1500 = stop)
-        self.step_size_us = 100 # Microsecond step size per D-pad press
+        self.step_size_us = 100    # Microsecond step size per D-pad press
         
         # Button debouncing
         self.last_mode_change_time = 0
-        self.last_dpad_state = 0   # Track D-pad state for edge detection
         self.debounce_delay = 0.3  # 300ms debounce
+        
+        # Store last joystick state for continuous publishing
+        self.last_joy_msg = None
+        
+        # Timer for continuous publishing (20 Hz = 50ms interval)
+        self.publish_rate = 20  # Hz
+        self.timer = rospy.Timer(rospy.Duration(1.0 / self.publish_rate), self.timer_callback)
         
         rospy.loginfo("=" * 60)
         rospy.loginfo("Drive + 360° Servo Control Node Started")
@@ -38,15 +44,30 @@ class DriveServoControl:
         rospy.loginfo("  Button A → Cycle Speed Modes (Slow/Med/Fast/Max)")
         rospy.loginfo("")
         rospy.loginfo("SERVO CONTROLS:")
-        rospy.loginfo("  D-pad Left → CCW rotation")
-        rospy.loginfo("  D-pad Right → CW rotation")
-        rospy.loginfo("  D-pad Release → Stop")
+        rospy.loginfo("  D-pad Left (hold) → Rotate CCW")
+        rospy.loginfo("  D-pad Right (hold) → Rotate CW")
+        rospy.loginfo("  D-pad Release → STOP")
+        rospy.loginfo("")
+        rospy.loginfo(f"Publishing at {self.publish_rate} Hz (continuous)")
         rospy.loginfo("=" * 60)
     
     def joy_callback(self, msg):
         """
-        Unified callback for joystick input controlling both drive and servo
+        Store the latest joystick state
+        This is called only when joystick values CHANGE
         """
+        self.last_joy_msg = msg
+    
+    def timer_callback(self, event):
+        """
+        Called continuously at fixed rate (20 Hz)
+        Publishes commands even when joystick is held steady
+        """
+        if self.last_joy_msg is None:
+            return  # No joystick data yet
+        
+        msg = self.last_joy_msg
+        
         # ===== JOYSTICK MAPPING =====
         LT = -msg.axes[2]           # Left trigger
         RT = -msg.axes[5]           # Right trigger
@@ -80,19 +101,16 @@ class DriveServoControl:
             vel_linear_x = int(255 * (RT - LT) / 2)
             vel_angular_z = int(255 * L_Analog_X)
         
-        # ===== SERVO SPEED CALCULATION (INCREMENTAL) =====
-        # Incremental step-based control (edge detection on D-pad)
-        if D_X < 0 and self.last_dpad_state >= 0:  # D-pad Left pressed (new press)
-            # Decrease speed (more CCW)
-            self.servo_speed -= self.step_size_us
-            rospy.loginfo(f"Servo CCW → {self.servo_speed}μs")
-        elif D_X > 0 and self.last_dpad_state <= 0:  # D-pad Right pressed (new press)
-            # Increase speed (more CW)
-            self.servo_speed += self.step_size_us
-            rospy.loginfo(f"Servo CW → {self.servo_speed}μs")
-        
-        # Update D-pad state for next iteration
-        self.last_dpad_state = D_X
+        # ===== SERVO SPEED CALCULATION (HOLD-BASED) =====
+        # Hold D-pad to rotate, release to stop
+        if D_X < 0:  # D-pad Left held - CCW rotation
+            # Move CCW at fixed speed
+            self.servo_speed = 1500 - self.step_size_us
+        elif D_X > 0:  # D-pad Right held - CW rotation
+            # Move CW at fixed speed
+            self.servo_speed = 1500 + self.step_size_us
+        else:  # D-pad released - STOP
+            self.servo_speed = 1500
         
         # Constrain servo speed to valid microsecond range
         self.servo_speed = max(1000, min(2000, self.servo_speed))

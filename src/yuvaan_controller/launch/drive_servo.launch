@@ -6,10 +6,4 @@
 
   <!-- Launch the unified drive + servo control node -->
   <node pkg="yuvaan_controller" type="drive_servo_control.py" name="drive_servo_control" output="screen" />
-
-  <!-- Launch rosserial for Arduino communication -->
-  <node pkg="rosserial_python" type="serial_node.py" name="rosserial_node" output="screen">
-    <param name="port" value="/dev/ttyACM0" />
-    <param name="baud" value="115200" />
-  </node>
 </launch>
