@@ -57,6 +57,8 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/n
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/mani.js
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/drive.js
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/drive_servo.js
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/dual_servo.js
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/unified_control.js
 
 
 /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/yuvaan.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -79,11 +81,23 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs: /home/n
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from yuvaan_controller/drive_servo.msg"
 	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg
 
+/home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/dual_servo.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/dual_servo.js: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from yuvaan_controller/dual_servo.msg"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg
+
+/home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/unified_control.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/unified_control.js: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from yuvaan_controller/unified_control.msg"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg
+
 yuvaan_controller_generate_messages_nodejs: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs
 yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/yuvaan.js
 yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/mani.js
 yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/drive.js
 yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/drive_servo.js
+yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/dual_servo.js
+yuvaan_controller_generate_messages_nodejs: /home/neem/yuvaan_ws/devel/share/gennodejs/ros/yuvaan_controller/msg/unified_control.js
 yuvaan_controller_generate_messages_nodejs: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_nodejs.dir/build.make
 
 .PHONY : yuvaan_controller_generate_messages_nodejs

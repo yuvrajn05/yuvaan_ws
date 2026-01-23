@@ -168,19 +168,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule
+.PHONY : yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+yuvaan_controller_gennodejs: yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_py
+.PHONY : yuvaan_controller_gennodejs
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
+yuvaan_controller_gennodejs/fast:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/build.make yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/build
+.PHONY : yuvaan_controller_gennodejs/fast
+
+# Convenience name for target.
+yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp.dir/rule:
@@ -211,36 +226,6 @@ rosgraph_msgs_generate_messages_lisp: yuvaan_controller/CMakeFiles/rosgraph_msgs
 rosgraph_msgs_generate_messages_lisp/fast:
 	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make yuvaan_controller/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule:
-	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule
-.PHONY : yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule
-
-# Convenience name for target.
-yuvaan_controller_gennodejs: yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/rule
-
-.PHONY : yuvaan_controller_gennodejs
-
-# fast build rule for target.
-yuvaan_controller_gennodejs/fast:
-	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/build.make yuvaan_controller/CMakeFiles/yuvaan_controller_gennodejs.dir/build
-.PHONY : yuvaan_controller_gennodejs/fast
 
 # Convenience name for target.
 yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
@@ -603,6 +588,51 @@ _yuvaan_controller_generate_messages_check_deps_drive_servo/fast:
 .PHONY : _yuvaan_controller_generate_messages_check_deps_drive_servo/fast
 
 # Convenience name for target.
+yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_dual_servo.dir/rule:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_dual_servo.dir/rule
+.PHONY : yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_dual_servo.dir/rule
+
+# Convenience name for target.
+_yuvaan_controller_generate_messages_check_deps_dual_servo: yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_dual_servo.dir/rule
+
+.PHONY : _yuvaan_controller_generate_messages_check_deps_dual_servo
+
+# fast build rule for target.
+_yuvaan_controller_generate_messages_check_deps_dual_servo/fast:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_dual_servo.dir/build.make yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_dual_servo.dir/build
+.PHONY : _yuvaan_controller_generate_messages_check_deps_dual_servo/fast
+
+# Convenience name for target.
+yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_py: yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make yuvaan_controller/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_unified_control.dir/rule:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_unified_control.dir/rule
+.PHONY : yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_unified_control.dir/rule
+
+# Convenience name for target.
+_yuvaan_controller_generate_messages_check_deps_unified_control: yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_unified_control.dir/rule
+
+.PHONY : _yuvaan_controller_generate_messages_check_deps_unified_control
+
+# fast build rule for target.
+_yuvaan_controller_generate_messages_check_deps_unified_control/fast:
+	cd /home/neem/yuvaan_ws/build && $(MAKE) -f yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_unified_control.dir/build.make yuvaan_controller/CMakeFiles/_yuvaan_controller_generate_messages_check_deps_unified_control.dir/build
+.PHONY : _yuvaan_controller_generate_messages_check_deps_unified_control/fast
+
+# Convenience name for target.
 yuvaan_controller/CMakeFiles/yuvaan_controller_geneus.dir/rule:
 	cd /home/neem/yuvaan_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yuvaan_controller/CMakeFiles/yuvaan_controller_geneus.dir/rule
 .PHONY : yuvaan_controller/CMakeFiles/yuvaan_controller_geneus.dir/rule
@@ -627,11 +657,10 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
-	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... yuvaan_controller_gennodejs"
+	@echo "... roscpp_generate_messages_lisp"
 	@echo "... yuvaan_controller_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... yuvaan_controller_gennodejs"
 	@echo "... install/local"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... yuvaan_controller_genpy"
@@ -659,6 +688,9 @@ help:
 	@echo "... yuvaan_controller_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... _yuvaan_controller_generate_messages_check_deps_drive_servo"
+	@echo "... _yuvaan_controller_generate_messages_check_deps_dual_servo"
+	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... _yuvaan_controller_generate_messages_check_deps_unified_control"
 	@echo "... yuvaan_controller_geneus"
 .PHONY : help
 

@@ -57,6 +57,8 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_mani.py
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_drive.py
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_drive_servo.py
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_dual_servo.py
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_unified_control.py
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py
 
 
@@ -80,12 +82,24 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py: /home/neem/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG yuvaan_controller/drive_servo"
 	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg
 
+/home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_dual_servo.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_dual_servo.py: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG yuvaan_controller/dual_servo"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg
+
+/home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_unified_control.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_unified_control.py: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG yuvaan_controller/unified_control"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg
+
 /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_yuvaan.py
 /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_mani.py
 /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_drive.py
 /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_drive_servo.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for yuvaan_controller"
+/home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_dual_servo.py
+/home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_unified_control.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python msg __init__.py for yuvaan_controller"
 	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg --initpy
 
 yuvaan_controller_generate_messages_py: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py
@@ -93,6 +107,8 @@ yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/d
 yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_mani.py
 yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_drive.py
 yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_drive_servo.py
+yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_dual_servo.py
+yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/_unified_control.py
 yuvaan_controller_generate_messages_py: /home/neem/yuvaan_ws/devel/lib/python3/dist-packages/yuvaan_controller/msg/__init__.py
 yuvaan_controller_generate_messages_py: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_py.dir/build.make
 

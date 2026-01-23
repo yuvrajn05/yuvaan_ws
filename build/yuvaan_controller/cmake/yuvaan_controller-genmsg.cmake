@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "yuvaan_controller: 4 messages, 0 services")
+message(STATUS "yuvaan_controller: 6 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -37,6 +37,16 @@ add_custom_target(_yuvaan_controller_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yuvaan_controller" "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg" ""
 )
 
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" NAME_WE)
+add_custom_target(_yuvaan_controller_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yuvaan_controller" "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" ""
+)
+
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" NAME_WE)
+add_custom_target(_yuvaan_controller_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yuvaan_controller" "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -67,6 +77,18 @@ _generate_msg_cpp(yuvaan_controller
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yuvaan_controller
 )
+_generate_msg_cpp(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yuvaan_controller
+)
+_generate_msg_cpp(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yuvaan_controller
+)
 
 ### Generating Services
 
@@ -89,6 +111,10 @@ add_dependencies(yuvaan_controller_generate_messages_cpp _yuvaan_controller_gene
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_cpp _yuvaan_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_cpp _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_cpp _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_cpp _yuvaan_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -124,6 +150,18 @@ _generate_msg_eus(yuvaan_controller
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yuvaan_controller
 )
+_generate_msg_eus(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yuvaan_controller
+)
+_generate_msg_eus(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yuvaan_controller
+)
 
 ### Generating Services
 
@@ -146,6 +184,10 @@ add_dependencies(yuvaan_controller_generate_messages_eus _yuvaan_controller_gene
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_eus _yuvaan_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_eus _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_eus _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_eus _yuvaan_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -181,6 +223,18 @@ _generate_msg_lisp(yuvaan_controller
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yuvaan_controller
 )
+_generate_msg_lisp(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yuvaan_controller
+)
+_generate_msg_lisp(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yuvaan_controller
+)
 
 ### Generating Services
 
@@ -203,6 +257,10 @@ add_dependencies(yuvaan_controller_generate_messages_lisp _yuvaan_controller_gen
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_lisp _yuvaan_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_lisp _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_lisp _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_lisp _yuvaan_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,6 +296,18 @@ _generate_msg_nodejs(yuvaan_controller
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yuvaan_controller
 )
+_generate_msg_nodejs(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yuvaan_controller
+)
+_generate_msg_nodejs(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yuvaan_controller
+)
 
 ### Generating Services
 
@@ -260,6 +330,10 @@ add_dependencies(yuvaan_controller_generate_messages_nodejs _yuvaan_controller_g
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_nodejs _yuvaan_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_nodejs _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_nodejs _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_nodejs _yuvaan_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -295,6 +369,18 @@ _generate_msg_py(yuvaan_controller
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yuvaan_controller
 )
+_generate_msg_py(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yuvaan_controller
+)
+_generate_msg_py(yuvaan_controller
+  "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yuvaan_controller
+)
 
 ### Generating Services
 
@@ -317,6 +403,10 @@ add_dependencies(yuvaan_controller_generate_messages_py _yuvaan_controller_gener
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_py _yuvaan_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_py _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg" NAME_WE)
+add_dependencies(yuvaan_controller_generate_messages_py _yuvaan_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg" NAME_WE)
 add_dependencies(yuvaan_controller_generate_messages_py _yuvaan_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

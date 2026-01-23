@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/yuvaan.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/mani.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg"
+messages_str = "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/yuvaan.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/mani.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg;/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
 services_str = ""
 pkg_name = "yuvaan_controller"
 dependencies_str = "std_msgs"

@@ -57,6 +57,8 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/nee
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/mani.lisp
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/drive.lisp
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/drive_servo.lisp
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/dual_servo.lisp
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/unified_control.lisp
 
 
 /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/yuvaan.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
@@ -79,11 +81,23 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp: /home/nee
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from yuvaan_controller/drive_servo.msg"
 	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg
 
+/home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/dual_servo.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/dual_servo.lisp: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from yuvaan_controller/dual_servo.msg"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg
+
+/home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/unified_control.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/unified_control.lisp: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Lisp code from yuvaan_controller/unified_control.msg"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg
+
 yuvaan_controller_generate_messages_lisp: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp
 yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/yuvaan.lisp
 yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/mani.lisp
 yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/drive.lisp
 yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/drive_servo.lisp
+yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/dual_servo.lisp
+yuvaan_controller_generate_messages_lisp: /home/neem/yuvaan_ws/devel/share/common-lisp/ros/yuvaan_controller/msg/unified_control.lisp
 yuvaan_controller_generate_messages_lisp: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_lisp.dir/build.make
 
 .PHONY : yuvaan_controller_generate_messages_lisp

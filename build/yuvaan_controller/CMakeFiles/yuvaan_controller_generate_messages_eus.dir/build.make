@@ -57,6 +57,8 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/mani.l
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/drive.l
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/drive_servo.l
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/dual_servo.l
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/unified_control.l
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/manifest.l
 
 
@@ -80,8 +82,18 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus: /home/neem
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from yuvaan_controller/drive_servo.msg"
 	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg
 
+/home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/dual_servo.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/dual_servo.l: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from yuvaan_controller/dual_servo.msg"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg
+
+/home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/unified_control.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/unified_control.l: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from yuvaan_controller/unified_control.msg"
+	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg
+
 /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for yuvaan_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp manifest code for yuvaan_controller"
 	cd /home/neem/yuvaan_ws/build/yuvaan_controller && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller yuvaan_controller std_msgs
 
 yuvaan_controller_generate_messages_eus: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus
@@ -89,6 +101,8 @@ yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus
 yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/mani.l
 yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/drive.l
 yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/drive_servo.l
+yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/dual_servo.l
+yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/msg/unified_control.l
 yuvaan_controller_generate_messages_eus: /home/neem/yuvaan_ws/devel/share/roseus/ros/yuvaan_controller/manifest.l
 yuvaan_controller_generate_messages_eus: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_eus.dir/build.make
 

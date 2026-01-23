@@ -43,6 +43,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/mani.msg"
     "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive.msg"
     "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg"
+    "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg"
+    "/home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg"
     )
 endif()
 

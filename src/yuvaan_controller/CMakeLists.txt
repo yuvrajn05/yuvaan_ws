@@ -23,6 +23,8 @@ add_message_files(FILES
   mani.msg
   drive.msg
   drive_servo.msg
+  dual_servo.msg
+  unified_control.msg
 )
 ##add_message_files(FILES z.msg)
 

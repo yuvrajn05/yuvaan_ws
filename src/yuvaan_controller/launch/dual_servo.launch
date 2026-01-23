@@ -1,0 +1,15 @@
+<launch>
+  <!-- Launch the joy node for joystick input -->
+  <node pkg="joy" type="joy_node" name="joy_node" output="screen">
+    <param name="dev" type="string" value="/dev/input/js0" />
+  </node>
+
+  <!-- Launch the dual servo control node -->
+  <node pkg="yuvaan_controller" type="dual_servo_control.py" name="dual_servo_control" output="screen" />
+
+  <!-- Launch rosserial for Arduino communication -->
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial_node" output="screen">
+    <param name="port" value="/dev/ttyACM0" />
+    <param name="baud" value="115200" />
+  </node>
+</launch>

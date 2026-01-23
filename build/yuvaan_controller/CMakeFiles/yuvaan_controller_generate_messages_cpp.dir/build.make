@@ -57,6 +57,8 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/mani.h
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/drive.h
 yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/drive_servo.h
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/dual_servo.h
+yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/unified_control.h
 
 
 /home/neem/yuvaan_ws/devel/include/yuvaan_controller/yuvaan.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -83,11 +85,25 @@ yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp: /home/neem
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from yuvaan_controller/drive_servo.msg"
 	cd /home/neem/yuvaan_ws/src/yuvaan_controller && /home/neem/yuvaan_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/drive_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/include/yuvaan_controller -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/neem/yuvaan_ws/devel/include/yuvaan_controller/dual_servo.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/neem/yuvaan_ws/devel/include/yuvaan_controller/dual_servo.h: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg
+/home/neem/yuvaan_ws/devel/include/yuvaan_controller/dual_servo.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from yuvaan_controller/dual_servo.msg"
+	cd /home/neem/yuvaan_ws/src/yuvaan_controller && /home/neem/yuvaan_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/dual_servo.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/include/yuvaan_controller -e /opt/ros/noetic/share/gencpp/cmake/..
+
+/home/neem/yuvaan_ws/devel/include/yuvaan_controller/unified_control.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/neem/yuvaan_ws/devel/include/yuvaan_controller/unified_control.h: /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg
+/home/neem/yuvaan_ws/devel/include/yuvaan_controller/unified_control.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/neem/yuvaan_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from yuvaan_controller/unified_control.msg"
+	cd /home/neem/yuvaan_ws/src/yuvaan_controller && /home/neem/yuvaan_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/neem/yuvaan_ws/src/yuvaan_controller/msg/unified_control.msg -Iyuvaan_controller:/home/neem/yuvaan_ws/src/yuvaan_controller/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yuvaan_controller -o /home/neem/yuvaan_ws/devel/include/yuvaan_controller -e /opt/ros/noetic/share/gencpp/cmake/..
+
 yuvaan_controller_generate_messages_cpp: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp
 yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/yuvaan.h
 yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/mani.h
 yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/drive.h
 yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/drive_servo.h
+yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/dual_servo.h
+yuvaan_controller_generate_messages_cpp: /home/neem/yuvaan_ws/devel/include/yuvaan_controller/unified_control.h
 yuvaan_controller_generate_messages_cpp: yuvaan_controller/CMakeFiles/yuvaan_controller_generate_messages_cpp.dir/build.make
 
 .PHONY : yuvaan_controller_generate_messages_cpp
