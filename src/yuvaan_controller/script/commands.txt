@@ -1,13 +1,32 @@
 ping 192.168.2.101
 ssh jetson@192.168.2.101
+
 roscore
-rosrun rosserial_python serial_node.py /dev/ttyACM0
-rosrun joy joy_node _dev:=/dev/input/js0 __name:=joy0  joy:=/joy_a
-rosrun joy joy_node _dev:=/dev/input/js1 __name:=joy1  joy:=/joy_b
-rosrun yuvaan_controller drive.py
-rosrun yuvaan_controller mani.py
-rostopic echo /motor_command
-python3 yuvaan_ws/src/yuvaan_controller/script/video_stream.py
-rosrun rosserial_python serial_node.py /dev/ttyUSB0
+
+----------------------------------------------------
+
+rosrun yuvaan_controller unified_control.py
+
+rosrun joy joy_node
+rostopic echo /unified_command
+
 rosrun rosserial_python serial_node.py /dev/ttyUSB0 __name:=serial_node_1
+
+------------------------------------------------------
+
+rosrun yuvaan_controller mani2.py
+
+rosrun joy joy_node _dev:=/dev/input/js1 __name:=joy1  joy:=/joy_b
+rostopic echo /mani_motor_command
+
 rosrun rosserial_python serial_node.py /dev/ttyUSB1 __name:=serial_node_2
+
+----------------------------------------------------------
+
+python3 yuvaan_ws/src/yuvaan_controller/script/video_stream.py
+
+
+--------------------------------------------------------------
+
+rosrun joy joy_node _dev:=/dev/input/js0 __name:=joy0  joy:=/joy_a
+rosrun yuvaan_controller drive2.py
