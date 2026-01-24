@@ -7,10 +7,10 @@ from yuvaan_controller.msg import mani
 
 
 yaw_mode_index = 0
-yaw_modes = [30,60,80]
+yaw_modes = [30,60,255]
 
 roll_mode_index = 0
-roll_modes = [30,60,80]
+roll_modes = [30,60,255]
 
 
 def joy_callback(msg):
