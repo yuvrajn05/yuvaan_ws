@@ -1,0 +1,227 @@
+---
+# Yuvaan Robot System Configuration
+# This file defines all system components, their dependencies, and execution parameters
+
+# Network Configuration
+network:
+  jetson_ip: "192.168.2.101"
+  jetson_user: "jetson"
+  jetson_password: "jetson"  # Will use SSH keys if available
+  jetson_workspace: "/home/jetson/yuvaan_ws"  # Remote workspace path for ROS sourcing
+  ping_interval: 5  # seconds
+  ping_timeout: 2  # seconds
+
+# Logging Configuration
+logging:
+  log_dir: "~/yuvaan_logs"
+  max_log_size: 10485760  # 10MB
+  backup_count: 5
+  console_level: "INFO"
+  file_level: "DEBUG"
+
+# Component Definitions
+# Each component has:
+#   - name: unique identifier
+#   - description: human-readable description
+#   - location: where to run (jetson/laptop/both)
+#   - command: command to execute
+#   - type: required/optional/monitoring
+#   - dependencies: list of component names that must be running first
+#   - auto_restart: whether to restart on failure
+#   - startup_delay: seconds to wait after starting
+components:
+  # Monitoring Components
+  - name: "ping_monitor"
+    description: "Network connectivity monitor"
+    location: "laptop"
+    command: "ping -i 1 192.168.2.101"
+    type: "monitoring"
+    dependencies: []
+    auto_restart: true
+    startup_delay: 0
+    health_check: null
+
+  # Core ROS Components
+  - name: "roscore"
+    description: "ROS Master Node"
+    location: "jetson"
+    command: "roscore"
+    type: "required"
+    dependencies: []
+    auto_restart: true
+    startup_delay: 3
+    health_check:
+      type: "port"
+      port: 11311
+
+  - name: "merged_control"
+    description: "Unified and Manipulator Control Script"
+    location: "jetson"
+    command: "rosrun yuvaan_controller merged_control.py"
+    type: "required"
+    dependencies: ["roscore"]
+    auto_restart: true
+    startup_delay: 2
+    health_check:
+      type: "process"
+
+  # Joystick Input
+  - name: "joy_node"
+    description: "Joystick Input Node"
+    location: "laptop"
+    command: "rosrun joy joy_node"
+    type: "optional"
+    dependencies: ["roscore"]
+    auto_restart: false
+    startup_delay: 1
+    health_check:
+      type: "topic"
+      topic: "/joy"
+
+  # Monitoring Echo Nodes
+  - name: "joy_echo"
+    description: "Monitor Joystick Input"
+    location: "laptop"
+    command: "rostopic echo /joy"
+    type: "monitoring"
+    dependencies: ["joy_node"]
+    auto_restart: false
+    startup_delay: 1
+    health_check:
+      type: "topic"
+      topic: "/joy"
+
+  - name: "unified_echo"
+    description: "Monitor Unified Commands"
+    location: "jetson"
+    command: "rostopic echo /unified_command"
+    type: "monitoring"
+    dependencies: ["merged_control"]
+    auto_restart: false
+    startup_delay: 1
+    health_check:
+      type: "topic"
+      topic: "/unified_command"
+
+  - name: "mani_echo"
+    description: "Monitor Manipulator Commands"
+    location: "jetson"
+    command: "rostopic echo /mani_motor_command"
+    type: "monitoring"
+    dependencies: ["merged_control"]
+    auto_restart: false
+    startup_delay: 1
+    health_check:
+      type: "topic"
+      topic: "/mani_motor_command"
+
+  # Serial Communication Nodes
+  - name: "serial_node_main"
+    description: "Main Motor Serial Controller"
+    location: "jetson"
+    command: "rosrun rosserial_python serial_node.py /dev/ttyUSB0 __name:=serial_node_1"
+    type: "optional"
+    dependencies: ["merged_control"]
+    auto_restart: true
+    startup_delay: 2
+    health_check:
+      type: "process"
+
+  - name: "serial_node_mani"
+    description: "Manipulator Motor Serial Controller"
+    location: "jetson"
+    command: "rosrun rosserial_python serial_node.py /dev/ttyUSB1 __name:=serial_node_2"
+    type: "optional"
+    dependencies: ["merged_control"]
+    auto_restart: true
+    startup_delay: 2
+    health_check:
+      type: "process"
+
+  # Camera Stream
+  - name: "video_stream"
+    description: "Camera Video Stream Server"
+    location: "jetson"
+    command: "python3 yuvaan_ws/src/yuvaan_controller/script/video_stream.py"
+    type: "optional"
+    dependencies: []
+    auto_restart: true
+    startup_delay: 2
+    health_check:
+      type: "port"
+      port: 5000  # Adjust based on your video stream port
+
+# System Groups
+# Progressive groups that can be launched together
+groups:
+  no_hardware:
+    description: "Testing without hardware (simulation/echo only)"
+    components:
+      - "roscore"
+      - "merged_control"
+      - "joy_node"
+      - "joy_echo"
+      - "unified_echo"
+      - "mani_echo"
+      - "video_stream"
+
+  drive_only:
+    description: "Drive motors only (no manipulator)"
+    components:
+      - "roscore"
+      - "merged_control"
+      - "joy_node"
+      - "unified_echo"
+      - "serial_node_main"
+
+  drive_mani:
+    description: "Drive motors + Manipulator"
+    components:
+      - "roscore"
+      - "merged_control"
+      - "joy_node"
+      - "unified_echo"
+      - "serial_node_main"
+      - "mani_echo"
+      - "serial_node_mani"
+
+  full_system:
+    description: "Complete system with camera"
+    components:
+      - "roscore"
+      - "merged_control"
+      - "joy_node"
+      - "unified_echo"
+      - "serial_node_main"
+      - "mani_echo"
+      - "serial_node_mani"
+      - "video_stream"
+
+  monitoring:
+    description: "Monitoring and debugging setup"
+    components:
+      - "ping_monitor"
+      - "roscore"
+      - "merged_control"
+      - "unified_echo"
+      - "mani_echo"
+
+# Group progression order (for "upgrade" feature)
+group_progression:
+  - "no_hardware"
+  - "drive_only"
+  - "drive_mani"
+  - "full_system"
+
+# Execution modes
+execution_modes:
+  remote:
+    description: "Run components on Jetson via SSH"
+    default_location: "jetson"
+  
+  local:
+    description: "Run all components on laptop (for testing)"
+    default_location: "laptop"
+    # Override component locations to run everything locally
+    location_override:
+      jetson: "laptop"

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Yuvaan Robot System Launch File -->
+  <!-- Provides ROS launch file support for starting component groups -->
+  
+  <!-- Arguments -->
+  <arg name="group" default="no_hardware" 
+       doc="Group to start: no_hardware, drive_only, drive_mani, full_system, monitoring"/>
+  <arg name="joy_dev" default="/dev/input/js0" 
+       doc="Joystick device path"/>
+  <arg name="serial_main" default="/dev/ttyUSB0" 
+       doc="Main motor serial port"/>
+  <arg name="serial_mani" default="/dev/ttyUSB1" 
+       doc="Manipulator serial port"/>
+  
+  <!-- ROS Core (always required, but usually already running) -->
+  <!-- Uncomment to start roscore automatically
+  <node name="roscore" pkg="roscore" type="roscore" output="screen"/>
+  -->
+  
+  <!-- Core control node - always start in all groups -->
+  <node name="merged_control" pkg="yuvaan_controller" type="merged_control.py" 
+        output="screen" respawn="true"/>
+  
+  <!-- Joystick node - start for all groups -->
+  <node name="joy_node" pkg="joy" type="joy_node" output="screen">
+    <param name="dev" value="$(arg joy_dev)"/>
+    <param name="deadzone" value="0.12"/>
+    <param name="autorepeat_rate" value="20"/>
+  </node>
+  
+  <!-- Monitoring echo nodes -->
+  <group if="$(eval group in ['no_hardware', 'drive_only', 'drive_mani', 'full_system', 'monitoring'])">
+    <!-- Echo unified command -->
+    <node name="unified_echo" pkg="rostopic" type="rostopic" 
+          args="echo /unified_command" output="screen"/>
+  </group>
+  
+  <group if="$(eval group in ['drive_mani', 'full_system', 'monitoring'])">
+    <!-- Echo manipulator command -->
+    <node name="mani_echo" pkg="rostopic" type="rostopic" 
+          args="echo /mani_motor_command" output="screen"/>
+  </group>
+  
+  <!-- Serial nodes for hardware control -->
+  <group if="$(eval group in ['drive_only', 'drive_mani', 'full_system'])">
+    <!-- Main motor serial node -->
+    <node name="serial_node_1" pkg="rosserial_python" type="serial_node.py" 
+          args="$(arg serial_main)" output="screen" respawn="true"/>
+  </group>
+  
+  <group if="$(eval group in ['drive_mani', 'full_system'])">
+    <!-- Manipulator motor serial node -->
+    <node name="serial_node_2" pkg="rosserial_python" type="serial_node.py" 
+          args="$(arg serial_mani)" output="screen" respawn="true"/>
+  </group>
+  
+  <!-- Video stream -->
+  <group if="$(eval group == 'full_system')">
+    <node name="video_stream" pkg="yuvaan_controller" type="video_stream.py" 
+          output="screen" respawn="true"/>
+  </group>
+  
+  <!-- Information -->
+  <node name="launch_info" pkg="rostopic" type="rostopic" 
+        args="pub -1 /yuvaan/launch_info std_msgs/String 'Group: $(arg group)'" 
+        output="screen"/>
+  
+</launch>
