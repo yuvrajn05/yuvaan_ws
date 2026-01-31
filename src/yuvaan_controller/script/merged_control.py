@@ -30,18 +30,26 @@ class MergedController:
         self.servo_stick_x = 1500
         self.servo_stick_y = 1500
         self.dpad_speed = 250
+        self.servo_hold_mode = False  # False = auto-center, True = hold position
         
         # === MANI MODE STATE ===
         self.yaw_mode_index = 0
-        self.yaw_modes = [30, 60, 255]
+        self.yaw_modes = [64, 127, 191, 255]  # 25%, 50%, 75%, 100%
+        self.yaw_mode_names = ["25%", "50%", "75%", "100%"]
         self.roll_mode_index = 0
-        self.roll_modes = [30, 60, 255]
+        self.roll_modes = [64, 127, 191, 255]  # 25%, 50%, 75%, 100%
+        self.roll_mode_names = ["25%", "50%", "75%", "100%"]
+        self.gripper_mode_index = 0
+        self.gripper_modes = [64, 127, 191, 255]  # 25%, 50%, 75%, 100%
+        self.gripper_mode_names = ["25%", "50%", "75%", "100%"]
         
         # Button debouncing
         self.last_mode_switch_time = 0
         self.last_drive_mode_change_time = 0
+        self.last_servo_hold_change_time = 0
         self.last_yaw_mode_change_time = 0
         self.last_roll_mode_change_time = 0
+        self.last_gripper_mode_change_time = 0
         self.debounce_delay = 0.3
         
         # Store last joystick state
@@ -64,6 +72,7 @@ class MergedController:
         rospy.loginfo("  RT/LT → Forward/Reverse")
         rospy.loginfo("  Left Stick X → Steering")
         rospy.loginfo("  Button A → Cycle Drive Modes (Slow/Medium/Fast/Max)")
+        rospy.loginfo("  Button B → Toggle Servo Hold Mode (Auto-Center/Hold Position)")
         rospy.loginfo("  D-pad Left/Right → Servo 1 (Hold-to-Move)")
         rospy.loginfo("  Right Stick X → Servo 2 (Proportional)")
         rospy.loginfo("  Right Stick Y → Servo 3 (Proportional)")
@@ -75,8 +84,9 @@ class MergedController:
         rospy.loginfo("  Right Stick X → ROLL")
         rospy.loginfo("  RT/LT → PITCH")
         rospy.loginfo("  RB/LB → GRIPPER")
-        rospy.loginfo("  Button Y → Cycle Yaw Modes (30/60/255)")
-        rospy.loginfo("  Button B → Cycle Roll Modes (30/60/255)")
+        rospy.loginfo("  Button Y → Cycle Yaw Modes (25%/50%/75%/100%)")
+        rospy.loginfo("  Button B → Cycle Roll Modes (25%/50%/75%/100%)")
+        rospy.loginfo("  Button X → Cycle Gripper Modes (25%/50%/75%/100%)")
         rospy.loginfo("")
         rospy.loginfo(f"Current Mode: {self.mode_names[self.control_mode]}")
         rospy.loginfo(f"Publishing at {self.publish_rate} Hz (continuous for both modes)")
@@ -106,6 +116,7 @@ class MergedController:
         R_Analog_Y = msg.axes[4]
         D_X = msg.axes[6]
         A = msg.buttons[0]
+        B = msg.buttons[1]
         
         # Drive mode management
         current_time = rospy.get_time()
@@ -113,6 +124,13 @@ class MergedController:
             self.current_drive_mode_index = (self.current_drive_mode_index + 1) % len(self.drive_modes)
             self.last_drive_mode_change_time = current_time
             rospy.loginfo(f"Drive Mode: {self.drive_mode_names[self.current_drive_mode_index]}")
+        
+        # Servo hold mode management
+        if B == 1 and (current_time - self.last_servo_hold_change_time) > self.debounce_delay:
+            self.servo_hold_mode = not self.servo_hold_mode
+            self.last_servo_hold_change_time = current_time
+            mode_str = "HOLD POSITION" if self.servo_hold_mode else "AUTO-CENTER"
+            rospy.loginfo(f"Servo Mode: {mode_str}")
         
         mode = self.drive_modes[self.current_drive_mode_index]
         
@@ -130,11 +148,11 @@ class MergedController:
             vel_linear_x = int(255 * (RT - LT) / 2)
             vel_angular_z = int(255 * L_Analog_X)
         
-        # D-pad servo (Hold-to-Move)
+        # D-pad servo (Hold-to-Move) - REVERSED
         if D_X < 0:  # Left
-            self.servo_dpad = 1500 - self.dpad_speed
-        elif D_X > 0:  # Right
             self.servo_dpad = 1500 + self.dpad_speed
+        elif D_X > 0:  # Right
+            self.servo_dpad = 1500 - self.dpad_speed
         else:  # Released
             self.servo_dpad = 1500
         
@@ -142,12 +160,16 @@ class MergedController:
         deadzone = 0.1
         
         if abs(R_Analog_X) < deadzone:
-            self.servo_stick_x = 1500
+            if not self.servo_hold_mode:
+                self.servo_stick_x = 1500  # Auto-center when released
+            # else: hold last position
         else:
-            self.servo_stick_x = int(1500 + (500 * R_Analog_X))
+            self.servo_stick_x = int(1500 - (500 * R_Analog_X))  # REVERSED
         
         if abs(R_Analog_Y) < deadzone:
-            self.servo_stick_y = 1500
+            if not self.servo_hold_mode:
+                self.servo_stick_y = 1500  # Auto-center when released
+            # else: hold last position
         else:
             self.servo_stick_y = int(1500 + (500 * R_Analog_Y))
         
@@ -180,13 +202,14 @@ class MergedController:
         R_Analog_X = msg.axes[3]
         Y = msg.buttons[3]  # Y button for yaw mode
         B = msg.buttons[1]  # B button for roll mode
+        X = msg.buttons[2]  # X button for gripper mode
         
         # Yaw mode management
         current_time = rospy.get_time()
         if Y == 1 and (current_time - self.last_yaw_mode_change_time) > self.debounce_delay:
             self.yaw_mode_index = (self.yaw_mode_index + 1) % len(self.yaw_modes)
             self.last_yaw_mode_change_time = current_time
-            rospy.loginfo(f"Yaw Mode: {self.yaw_modes[self.yaw_mode_index]}")
+            rospy.loginfo(f"Yaw Mode: {self.yaw_mode_names[self.yaw_mode_index]} ({self.yaw_modes[self.yaw_mode_index]})")
         
         yaw_mode = self.yaw_modes[self.yaw_mode_index]
         
@@ -194,9 +217,17 @@ class MergedController:
         if B == 1 and (current_time - self.last_roll_mode_change_time) > self.debounce_delay:
             self.roll_mode_index = (self.roll_mode_index + 1) % len(self.roll_modes)
             self.last_roll_mode_change_time = current_time
-            rospy.loginfo(f"Roll Mode: {self.roll_modes[self.roll_mode_index]}")
+            rospy.loginfo(f"Roll Mode: {self.roll_mode_names[self.roll_mode_index]} ({self.roll_modes[self.roll_mode_index]})")
         
         roll_mode = self.roll_modes[self.roll_mode_index]
+        
+        # Gripper mode management
+        if X == 1 and (current_time - self.last_gripper_mode_change_time) > self.debounce_delay:
+            self.gripper_mode_index = (self.gripper_mode_index + 1) % len(self.gripper_modes)
+            self.last_gripper_mode_change_time = current_time
+            rospy.loginfo(f"Gripper Mode: {self.gripper_mode_names[self.gripper_mode_index]} ({self.gripper_modes[self.gripper_mode_index]})")
+        
+        gripper_mode = self.gripper_modes[self.gripper_mode_index]
         
         # Calculate motor commands
         BASE = int(255 * L_Analog_X)
@@ -204,7 +235,7 @@ class MergedController:
         ELBOW = int(255 * R_Analog_Y)
         ROLL = int(-roll_mode * R_Analog_X)
         PITCH = int(yaw_mode * (RT - LT) / 2)
-        GRIPPER = int(127 * (RB - LB))
+        GRIPPER = int(gripper_mode * (RB - LB))
         
         # Publish mani message
         motorspeed = mani()

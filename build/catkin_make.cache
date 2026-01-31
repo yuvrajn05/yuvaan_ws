@@ -1,2 +1,0 @@
-yuvaan_controller
--DCATKIN_DEVEL_PREFIX=/home/neem/yuvaan_ws/devel -DCMAKE_INSTALL_PREFIX=/home/neem/yuvaan_ws/install -G Unix Makefiles
